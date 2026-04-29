@@ -41,3 +41,21 @@ User Input
 ---
 
 ## 📂 Project Structure
+app.py
+facts.py
+model.pkl
+requirements.txt
+Procfile
+templates/
+static/
+
+
+---
+
+##  Run Locally
+
+```bash
+pip install -r requirements.txt
+python app.py
+
+Open: http://127.0.0.1:5000
