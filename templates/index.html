@@ -1,186 +1,100 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Fake News Detector</title>
-
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">🛡 Fake News Detector</div>
+<nav>
+    <div class="logo">🛡 Fake News Detector</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#how">How It Works</a></li>
+    </ul>
+</nav>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#how">How It Works</a></li>
-        </ul>
-    </nav>
+<!-- HERO / HOME -->
+<section class="hero" id="home">
+    <div class="overlay">
 
+        <div class="left">
+            <h1>Fake News <span>Detection</span></h1>
+            <p>
+                AI-powered system to analyze news content and detect whether it is
+                <span class="real">real</span> or
+                <span class="fake">fake</span>.
+            </p>
 
-    <!-- HERO / HOME -->
-    <section class="hero" id="home">
-
-        <!-- Background Image -->
-        <div class="background-image"></div>
-
-        <div class="overlay">
-
-            <!-- LEFT CONTENT -->
-            <div class="left">
-
-                <h1>
-                    Fake News <span>Detection</span>
-                </h1>
-
-                <p>
-                    AI-powered system to analyze news content and detect whether it is
-                    <span class="real">real</span> or
-                    <span class="fake">fake</span>.
-                </p>
-
-                <div class="features">
-
-                    <div>🤖 AI Powered Model</div>
-
-                    <div>📝 NLP Text Analysis</div>
-
-                    <div>🛡 Secure & Reliable</div>
-
-                    <div>⚡ Fast Prediction</div>
-
-                </div>
-
+            <div class="features">
+                <div>AI Powered Model</div>
+                <div>NLP Text Analysis</div>
+                <div>Secure & Reliable</div>
+                <div>Fast Prediction</div>
             </div>
-
-
-            <!-- RIGHT CONTENT -->
-            <div class="right">
-
-                <form id="newsForm" action="/predict" method="post">
-
-                    <h2>Analyze News</h2>
-
-                    <textarea
-                        id="newsInput"
-                        name="news"
-                        placeholder="Paste news content here...">{{ news_text if news_text }}</textarea>
-
-                    <div class="btn-row">
-
-                        <button type="submit">
-                            Analyze News
-                        </button>
-
-                        <button type="button" id="clearBtn">
-                            Clear
-                        </button>
-
-                    </div>
-
-                    <p id="errorMsg"></p>
-
-                </form>
-
-
-                <!-- PREDICTION RESULT -->
-                {% if prediction_text %}
-
-                <div class="result">
-                    {{ prediction_text }}
-                </div>
-
-                {% endif %}
-
-            </div>
-
         </div>
 
-    </section>
+        <div class="right">
+            <form id="newsForm" action="/predict" method="post">
+                <h2>Analyze News</h2>
 
+                <textarea id="newsInput" name="news"
+                placeholder="Paste news content here...">{{ news_text if news_text }}</textarea>
 
-    <!-- HOW IT WORKS -->
-    <section class="how" id="how">
+                <div class="btn-row">
+                    <button type="submit">Analyze News</button>
+                    <button type="button" id="clearBtn">Clear</button>
+                </div>
 
-        <h2>How It Works</h2>
+                <p id="errorMsg"></p>
+            </form>
 
-        <div class="how-container">
-
-            <div class="step">
-
-                <div class="icon">📝</div>
-
-                <h3>Input News</h3>
-
-                <p>
-                    Paste the news content
-                </p>
-
-            </div>
-
-
-            <div class="arrow">➜</div>
-
-
-            <div class="step">
-
-                <div class="icon">📄</div>
-
-                <h3>Text Processing</h3>
-
-                <p>
-                    NLP cleans and prepares text
-                </p>
-
-            </div>
-
-
-            <div class="arrow">➜</div>
-
-
-            <div class="step">
-
-                <div class="icon">🧠</div>
-
-                <h3>AI Analysis</h3>
-
-                <p>
-                    ML model analyzes deeply
-                </p>
-
-            </div>
-
-
-            <div class="arrow">➜</div>
-
-
-            <div class="step">
-
-                <div class="icon">🛡</div>
-
-                <h3>Result</h3>
-
-                <p>
-                    Shows Real or Fake
-                </p>
-
-            </div>
-
+            {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+            {% endif %}
         </div>
 
-    </section>
+    </div>
+</section>
 
+<!-- HOW IT WORKS (SCROLL SECTION) -->
+<section class="how" id="how">
+    <h2>How It Works</h2>
 
-    <!-- JAVASCRIPT -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div class="how-container">
+        <div class="step">
+            <div class="icon">📝</div>
+            <h3>Input News</h3>
+            <p>Paste the news content</p>
+        </div>
 
+        <div class="arrow">➜</div>
+
+        <div class="step">
+            <div class="icon">📄</div>
+            <h3>Text Processing</h3>
+            <p>NLP cleans and prepares text</p>
+        </div>
+
+        <div class="arrow">➜</div>
+
+        <div class="step">
+            <div class="icon">🧠</div>
+            <h3>AI Analysis</h3>
+            <p>ML model analyzes deeply</p>
+        </div>
+
+        <div class="arrow">➜</div>
+
+        <div class="step">
+            <div class="icon">🛡</div>
+            <h3>Result</h3>
+            <p>Shows Real or Fake</p>
+        </div>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
 </html>
-```
