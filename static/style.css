@@ -1,479 +1,199 @@
-```css
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    color: white;
-    background: #0b1120;
+body{
+    color:white;
 }
 
 /* ================= NAVBAR ================= */
 
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 60px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(12px);
-
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-
-    z-index: 1000;
+nav{
+    position:fixed;
+    width:100%;
+    padding:15px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.7);
+    z-index:1000;
 }
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
+.logo{
+    font-size:22px;
+    font-weight:bold;
 }
 
-nav ul {
-    display: flex;
-    gap: 30px;
-    list-style: none;
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-
-    padding: 8px 14px;
-    border-radius: 6px;
-
-    transition: 0.3s;
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:8px 14px;
+    border-radius:6px;
+    transition:0.3s;
 }
 
-nav a:hover {
-    background: cyan;
-    color: black;
+nav a:hover{
+    background:cyan;
+    color:black;
 }
-
 
 /* ================= HERO SECTION ================= */
 
-.hero {
-    min-height: 100vh;
-
-    /* BACKGROUND IMAGE */
-    background-image: url('/static/bg.jpg');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    position: relative;
+.hero{
+    height:100vh;
+    background:url('/static/bg.jpg') center/cover no-repeat;
+}
+.hero{
+    background-image: url("{{ url_for('static', filename='bg.jpg') }}");
 }
 
-
-/* DARK OVERLAY */
-
-.overlay {
-    min-height: 100vh;
-
-    background: rgba(0, 0, 0, 0.72);
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    padding: 100px 80px 60px;
+.overlay{
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:80px;
 }
 
-
-/* ================= LEFT CONTENT ================= */
-
-.left {
-    width: 45%;
+.left{
+    width:45%;
 }
 
-.left h1 {
-    font-size: 55px;
-    line-height: 1.1;
-    margin-bottom: 20px;
+.left h1{
+    font-size:55px;
+    margin-bottom:20px;
 }
 
-.left h1 span {
-    color: cyan;
+.left span{
+    color:cyan;
 }
 
-.left p {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #e5e7eb;
-    max-width: 600px;
+.real{ color:#22c55e; font-weight:700; }
+.fake{ color:#ef4444; font-weight:700; }
+
+.features{
+    margin-top:20px;
 }
 
-.real {
-    color: #22c55e;
-    font-weight: 700;
+.features div{
+    margin:12px 0;
+    font-size:18px;
 }
-
-.fake {
-    color: #ef4444;
-    font-weight: 700;
-}
-
-
-/* ================= FEATURES ================= */
-
-.features {
-    margin-top: 25px;
-}
-
-.features div {
-    margin: 12px 0;
-    font-size: 18px;
-
-    padding: 10px 15px;
-
-    width: fit-content;
-
-    background: rgba(255, 255, 255, 0.08);
-    border-left: 3px solid cyan;
-
-    border-radius: 6px;
-
-    transition: 0.3s;
-}
-
-.features div:hover {
-    transform: translateX(8px);
-    background: rgba(0, 255, 255, 0.12);
-}
-
 
 /* ================= RIGHT CARD ================= */
 
-.right {
-    width: 35%;
-
-    background: rgba(255, 255, 255, 0.09);
-
-    padding: 30px;
-
-    border-radius: 18px;
-
-    backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(255, 255, 255, 0.15);
-
-    box-shadow:
-        0 0 25px rgba(0, 255, 255, 0.15),
-        0 15px 40px rgba(0, 0, 0, 0.4);
+.right{
+    width:35%;
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:15px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 25px rgba(0,255,255,0.2);
 }
 
-.right h2 {
-    margin-bottom: 15px;
-    font-size: 27px;
+.right h2{
+    margin-bottom:15px;
 }
 
+/* TEXTAREA */
 
-/* ================= TEXTAREA ================= */
-
-textarea {
-    width: 100%;
-    height: 160px;
-
-    margin-top: 12px;
-    padding: 14px;
-
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-
-    background: rgba(0, 0, 0, 0.55);
-
-    color: white;
-
-    resize: none;
-
-    font-size: 15px;
-
-    outline: none;
-
-    transition: 0.3s;
+textarea{
+    width:100%;
+    height:160px;
+    margin-top:12px;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:rgba(0,0,0,0.6);
+    color:white;
+    resize:none;
+    font-size:15px;
 }
 
-textarea::placeholder {
-    color: #aaa;
+/* BUTTONS */
+
+.btn-row{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
 }
 
-textarea:focus {
-    border-color: cyan;
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.25);
+button{
+    flex:1;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:cyan;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-
-/* ================= BUTTONS ================= */
-
-.btn-row {
-    display: flex;
-    gap: 10px;
-
-    margin-top: 15px;
+button:hover{
+    background:white;
+    color:black;
 }
 
-button {
-    flex: 1;
-
-    padding: 12px;
-
-    border-radius: 10px;
-    border: none;
-
-    background: cyan;
-
-    color: black;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.3s;
+.result{
+    margin-top:15px;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
 }
 
-button:hover {
-    background: white;
+/* ================= HOW SECTION (SCROLL) ================= */
 
-    transform: translateY(-2px);
-
-    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+.how{
+    min-height:100vh;
+    padding:140px 40px 80px;
+    text-align:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 }
 
-
-/* ================= RESULT ================= */
-
-.result {
-    margin-top: 15px;
-
-    padding: 15px;
-
-    font-size: 20px;
-
-    text-align: center;
-
-    font-weight: bold;
-
-    border-radius: 10px;
-
-    background: rgba(0, 255, 255, 0.08);
-
-    border: 1px solid rgba(0, 255, 255, 0.25);
+.how h2{
+    font-size:40px;
+    margin-bottom:50px;
 }
 
-
-/* ================= ERROR MESSAGE ================= */
-
-#errorMsg {
-    margin-top: 10px;
-
-    color: #ff6b6b;
-
-    text-align: center;
-
-    font-size: 14px;
+.how-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:35px;
+    flex-wrap:wrap;
 }
 
-
-/* ================= HOW IT WORKS ================= */
-
-.how {
-    min-height: 100vh;
-
-    padding: 140px 40px 80px;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #07111f,
-            #0f2027,
-            #203a43,
-            #07111f
-        );
+.step{
+    width:220px;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    font-size:18px;
 }
 
-.how h2 {
-    font-size: 40px;
-
-    margin-bottom: 50px;
-
-    color: white;
+.icon{
+    font-size:35px;
+    margin-bottom:15px;
 }
 
-.how-container {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 35px;
-
-    flex-wrap: wrap;
+.arrow{
+    font-size:28px;
+    color:cyan;
 }
-
-
-/* ================= STEP CARDS ================= */
-
-.step {
-    width: 220px;
-
-    min-height: 190px;
-
-    padding: 25px;
-
-    border-radius: 20px;
-
-    background: rgba(255, 255, 255, 0.08);
-
-    backdrop-filter: blur(15px);
-
-    border: 1px solid rgba(255, 255, 255, 0.18);
-
-    font-size: 18px;
-
-    transition: 0.3s;
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-.step:hover {
-    transform: translateY(-10px);
-
-    border-color: cyan;
-
-    box-shadow:
-        0 10px 30px rgba(0, 255, 255, 0.2);
-}
-
-.step h3 {
-    margin-bottom: 10px;
-}
-
-.step p {
-    color: #cbd5e1;
-
-    font-size: 15px;
-
-    line-height: 1.5;
-}
-
-
-/* ================= ICON ================= */
-
-.icon {
-    font-size: 38px;
-
-    margin-bottom: 15px;
-}
-
-
-/* ================= ARROW ================= */
-
-.arrow {
-    font-size: 30px;
-
-    color: cyan;
-
-    font-weight: bold;
-}
-
-
-/* ================= RESPONSIVE DESIGN ================= */
-
-@media (max-width: 900px) {
-
-    nav {
-        padding: 15px 25px;
-    }
-
-    .overlay {
-        flex-direction: column;
-
-        padding: 120px 30px 60px;
-
-        gap: 40px;
-    }
-
-    .left,
-    .right {
-        width: 90%;
-    }
-
-    .left h1 {
-        font-size: 42px;
-    }
-
-    .how-container {
-        flex-direction: column;
-    }
-
-    .arrow {
-        transform: rotate(90deg);
-    }
-}
-
-
-@media (max-width: 600px) {
-
-    nav {
-        padding: 15px 20px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    nav ul {
-        gap: 8px;
-    }
-
-    nav a {
-        padding: 6px 8px;
-        font-size: 13px;
-    }
-
-    .left h1 {
-        font-size: 36px;
-    }
-
-    .left p {
-        font-size: 16px;
-    }
-
-    .right {
-        width: 100%;
-        padding: 22px;
-    }
-
-    .how {
-        padding: 120px 20px 60px;
-    }
-
-    .how h2 {
-        font-size: 32px;
-    }
-
-    .step {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-```
