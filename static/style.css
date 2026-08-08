@@ -57,6 +57,9 @@ nav a:hover{
     height:100vh;
     background:url('/static/bg.jpg') center/cover no-repeat;
 }
+.hero{
+    background-image: url("{{ url_for('static', filename='bg.jpg') }}");
+}
 
 .overlay{
     height:100%;
