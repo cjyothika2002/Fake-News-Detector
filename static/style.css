@@ -53,14 +53,13 @@ nav a:hover{
 
 /* ================= HERO SECTION ================= */
 
-.hero{
-    height:100vh;
-    background:url('/static/bg.jpg') center/cover no-repeat;
+.hero {
+    height: 100vh;
+    background-image: url("bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.hero{
-    background-image: url("{{ url_for('static', filename='bg.jpg') }}");
-}
-
 .overlay{
     height:100%;
     background:rgba(0,0,0,0.75);
